@@ -11,3 +11,6 @@ class Category(Base):
     color = Column(String, default="#6B7F5B")
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     
+    @property
+    def product_count(self) -> int:
+        return len(self.products) if hasattr(self, 'products') and self.products else 0

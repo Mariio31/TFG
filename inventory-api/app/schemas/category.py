@@ -11,6 +11,7 @@ class CategoryCreate(CategoryBase):
 
 class CategoryResponse(CategoryBase):
     id: int
+    product_count: Optional[int] = 0
 
     class Config:
         from_attributes = True

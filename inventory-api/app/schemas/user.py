@@ -7,6 +7,12 @@ class UserCreate(BaseModel):
     password: str
     role: Optional[str] = "employee"
 
+class UserCreateByAdmin(BaseModel):
+    name: str
+    email: str
+    password: str
+    role: str  # admin, manager, employee - requerido cuando crea admin
+
 class UserResponse(BaseModel):
     id: int
     name: str

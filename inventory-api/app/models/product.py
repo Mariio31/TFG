@@ -17,7 +17,7 @@ class Product(Base):
     min_stock = Column(Integer, default=5)
     unit = Column(String, default="unidad")  # unidad, kg, litro, caja, paquete, metro
     supplier = Column(String, nullable=True)
-    image_url = Column(String, nullable=True)
+    image_path = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     category = relationship("Category", backref="products")

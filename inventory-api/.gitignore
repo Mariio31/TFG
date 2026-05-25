@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Entorno virtual
+venv/
+
+# Variables de entorno
+.env
+
+# Base de datos local
+*.db
+
+# Logs
+*.log

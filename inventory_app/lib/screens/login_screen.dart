@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inventory_app/services/api_service.dart';
+import 'package:inventory_app/screens/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -22,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
     setState(() { loading = false; });
     if (success && mounted) {
+      if (!context.mounted) return;
       Navigator.pushReplacementNamed(context, '/home');
     } else {
       setState(() { error = 'Email o contraseña incorrectos'; });
@@ -78,6 +80,23 @@ class _LoginScreenState extends State<LoginScreen> {
                           ? const CircularProgressIndicator(color: Colors.white)
                           : const Text('Iniciar sesión', style: TextStyle(color: Colors.white, fontSize: 16)),
                     ),
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('¿No tienes cuenta? '),
+                      GestureDetector(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const RegisterScreen()),
+                        ),
+                        child: const Text(
+                          'Regístrate',
+                          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

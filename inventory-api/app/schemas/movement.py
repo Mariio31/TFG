@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 from enum import Enum
+from datetime import datetime
 
 class MovementType(str, Enum):
     entrada = "entrada"
@@ -15,6 +16,7 @@ class MovementBase(BaseModel):
     reason: Optional[str] = None
     notes: Optional[str] = None
     reference: Optional[str] = None
+    created_at: Optional[datetime] = None
 
 class MovementCreate(MovementBase):
     pass

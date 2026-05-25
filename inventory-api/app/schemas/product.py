@@ -12,7 +12,7 @@ class ProductBase(BaseModel):
     min_stock: Optional[int] = 5
     unit: Optional[str] = "unidad"
     supplier: Optional[str] = None
-    image_url: Optional[str] = None
+    image_path: Optional[str] = None
 
 class ProductCreate(ProductBase):
     pass
