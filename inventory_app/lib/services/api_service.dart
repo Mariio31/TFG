@@ -4,7 +4,12 @@ import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-const String baseUrl = 'http://localhost:8000';
+// Cambia a true para usar local, false para usar AWS
+const bool useLocalBackend = false;
+
+const String baseUrl = useLocalBackend 
+    ? 'http://127.0.0.1:8000'
+    : 'http://44.223.138.164';
 
 class ApiService {
   static final GlobalKey<NavigatorState> navigatorKey =
